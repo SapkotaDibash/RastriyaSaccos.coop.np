@@ -1,1 +1,117 @@
-rastriya saccos
+<!DOCTYPE html>
+<html>
+<style>
+body,
+html {
+    height: 100%;
+    margin: 0;
+}
+
+.bgimg {
+    background-image: url();
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    color: black;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 25px;
+}
+
+.topleft {
+    position: absolute;
+    top: 0;
+    left: 16px;
+}
+
+.bottomleft {
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+}
+
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    text-shadow: 2px 2px 1px #040404b0;
+
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+hr {
+    margin: auto;
+    width: 40%;
+}
+
+
+
+body {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+</style>
+
+<body>
+    <div class="bgimg">
+        <div class="middle">
+            <h1>COMING SOON</h1>
+            <div id="TIME"></div>
+        </div>
+    </div>
+    <script>
+    const LAST_DATE = '2023-02-25'
+    let div = document.getElementById('TIME');
+
+    setInterval(function() {
+        let html = GET_REMAINING_TIME();
+        div.innerHTML = html;
+    }, 1000);
+
+    function GET_REMAINING_TIME() {
+        const today = new Date();
+        const last_date_js = new Date(LAST_DATE);
+
+
+
+        var delta = Math.abs(last_date_js - today) / 1000;
+
+        // calculate (and subtract) whole days
+        var days = Math.floor(delta / 86400);
+        delta -= days * 86400;
+
+        // calculate (and subtract) whole hours
+        var hours = Math.floor(delta / 3600) % 24;
+        delta -= hours * 3600;
+
+        // calculate (and subtract) whole minutes
+        var minutes = Math.floor(delta / 60) % 60;
+        delta -= minutes * 60;
+
+        // what's left is seconds
+        var seconds = Math.floor(delta % 60); // in theory the modulus is not required    }
+
+
+        return `${days} DAY, ${hours} HOURS, ${minutes} MINUTES, ${seconds} Sec.`;
+    }
+    </script>
+</body>
+
+</html>
