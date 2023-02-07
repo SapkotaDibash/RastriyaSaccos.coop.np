@@ -83,7 +83,7 @@
         </div>
     </div>
     <script>
-        const LAST_DATE = '2023-02-25'
+        const LAST_DATE = '2023-03-25'
         let div = document.getElementById('TIME');
 
         setInterval(function () {
@@ -115,8 +115,9 @@
             var seconds = Math.floor(delta % 60); // in theory the modulus is not required    }
 
 
-            return `${days} DAY, ${hours} HOURS, ${minutes} MINUTES, ${seconds} Sec.`;
-        }
+            return `${days} Day ${hours} Hrs ${minutes} Min ${seconds} Sec.`;
+        };
+      document.getElementById('TIME').innerHTML=GET_REMAINING_TIME() ;
     </script>
 </body>
 
