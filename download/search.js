@@ -1,5 +1,11 @@
 let TRANSPAENT_DIV_STATUS = false;
-$('#SearchInput').keyup(function () {
+$('#SearchInput').keyup(function (e) {
+    if (e.key == "Escape") {
+        $('.transparent_BG').hide();
+        return;
+    }
+    $('.transparent_BG').show();
+
     const val = $(this).val();
     if (val.length == 0) {
         $('.transparent_BG').remove();
