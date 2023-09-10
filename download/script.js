@@ -57,7 +57,7 @@ function createHTML() {
 
 
 
-        let OPEN_STATUS = (i == 0) ? 'open' : '';
+        let OPEN_STATUS = (i == 0 ||i == 1) ? 'open' : '';
 
         const HTML = `            
    
